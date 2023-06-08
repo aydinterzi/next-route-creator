@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import FolderForm from "./folderform";
-
+import CodeDisplay from "./codeDisplay";
 interface FileTypes {
   page: boolean;
   layout: boolean;
@@ -24,6 +24,7 @@ function Form() {
       subFolders: [],
     },
   ]);
+  const [generatedCode, setGeneratedCode] = useState<string>("");
 
   function generateCommands(folders: Folder[], root: string = "app"): string[] {
     let commands: string[] = [];
@@ -58,9 +59,8 @@ function Form() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log(folders);
     const commands = generateCommands(folders);
-    console.log(commands.join("\n"));
+    setGeneratedCode(commands.join("\n"));
   };
 
   const handleFolderChange = (index: number, updatedFolder: Folder) => {
@@ -105,10 +105,11 @@ function Form() {
       </button>
       <button
         type="submit"
-        className="mt-2 bg-red-500 text-white px-2 py-1 ml-2"
+        className="my-2 bg-red-500 text-white px-2 py-1 ml-2"
       >
         Oluştur
       </button>
+      <CodeDisplay code={generatedCode} />
     </form>
   );
 }
