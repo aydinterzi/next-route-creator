@@ -101,13 +101,13 @@ function Form() {
         onClick={handleAddFolder}
         className="mt-2 bg-blue-500 text-white px-2 py-1"
       >
-        Klasör Ekle
+        Add Folder
       </button>
       <button
         type="submit"
-        className="my-2 bg-red-500 text-white px-2 py-1 ml-2"
+        className="my-2 bg-green-500 text-white px-2 py-1 ml-2"
       >
-        Oluştur
+        Create Commands
       </button>
       <CodeDisplay code={generatedCode} />
     </form>

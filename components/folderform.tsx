@@ -1,5 +1,4 @@
 "use client";
-import { ChangeEvent, useState } from "react";
 
 interface FileTypes {
   page: boolean;
@@ -59,7 +58,7 @@ const FolderForm: React.FC<FolderFormProps> = ({
   return (
     <div className="border p-4 mb-4">
       <label>
-        Klasör Adı:
+        Folder Name:
         <input
           type="text"
           value={folder.folderName}
@@ -68,7 +67,7 @@ const FolderForm: React.FC<FolderFormProps> = ({
         />
       </label>
       <br />
-      Dosya Tipleri:
+      File Types:
       <label>
         <input type="checkbox" name="page" checked readOnly className="ml-2" />{" "}
         page.tsx
@@ -106,9 +105,9 @@ const FolderForm: React.FC<FolderFormProps> = ({
       <button
         type="button"
         onClick={handleAddSubFolder}
-        className="mt-2 bg-green-500 text-white px-2 py-1"
+        className="mt-2 bg-blue-500 text-white px-2 py-1"
       >
-        Alt Klasör Ekle
+        Add Sub Folder
       </button>
       {onDelete && (
         <button
@@ -116,7 +115,7 @@ const FolderForm: React.FC<FolderFormProps> = ({
           onClick={onDelete}
           className="mt-2 bg-red-500 text-white px-2 py-1 ml-2"
         >
-          Klasörü Sil
+          Delete Folder
         </button>
       )}
       {folder.subFolders.map((subFolder, index) => (
